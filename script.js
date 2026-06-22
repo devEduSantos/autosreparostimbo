@@ -70,3 +70,24 @@ window.addEventListener("scroll", () => {
     contatoFinal.style.transform = "translateY(0)";
   }
 });
+
+document.querySelectorAll(".video-card").forEach(card => {
+  const video = card.querySelector("video");
+
+  // autoplay no hover
+  card.addEventListener("mouseenter", () => {
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  // clique = abrir fullscreen
+  card.addEventListener("click", () => {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    }
+  });
+}); 
